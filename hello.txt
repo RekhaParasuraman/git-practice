@@ -1,2 +1,2 @@
 Hello Git
-This is my feature branch
+I am learning Git on the main branch
