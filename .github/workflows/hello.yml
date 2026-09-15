@@ -1,4 +1,4 @@
-name: My First GitHub Action
+name: Python CI
 
 on:
   push:
@@ -6,9 +6,12 @@ on:
       - main
 
 jobs:
-  hello:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Say Hello
-        run: echo "Hello! My first GitHub Actions workflow is running."
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Python application
+        run: python3 app.py
