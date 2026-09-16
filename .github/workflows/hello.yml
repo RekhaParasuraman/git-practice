@@ -18,6 +18,17 @@ jobs:
       - name: Show application name
         run: echo $APP_NAME
 
+      - name: Check secret
+        run: |
+          if [ -n "$MY_SECRET" ]; then
+            echo "Secret is available"
+          else
+            echo "Secret is missing"
+            exit 1
+          fi
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
