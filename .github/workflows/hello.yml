@@ -4,6 +4,9 @@ on:
   push:
   workflow_dispatch:
 
+env:
+  APP_NAME: my-python-app
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -11,6 +14,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Show application name
+        run: echo $APP_NAME
 
       - name: Set up Python
         uses: actions/setup-python@v5
